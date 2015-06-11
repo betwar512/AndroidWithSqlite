@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+
 
 
 /**
@@ -54,7 +56,7 @@ public class PictureFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
+//  mParam1 = getArguments().getString(ARG_PARAM1);
 //            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
@@ -63,7 +65,16 @@ public class PictureFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_picture, container, false);
+        View v=inflater.inflate(R.layout.fragment_picture, container, false);
+        String name=this.getArguments().getString("Key_name_passes");
+        String phone=this.getArguments().getString("Ket_phone_passes");
+
+        EditText textName= (EditText)v.findViewById(R.id.nameTextField);
+        EditText textPhone=(EditText)v.findViewById(R.id.phoneTextField);
+        textName.setText(name);
+        textPhone.setText(phone);
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

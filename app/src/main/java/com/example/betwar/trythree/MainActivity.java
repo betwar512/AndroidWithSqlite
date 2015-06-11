@@ -1,5 +1,6 @@
 package com.example.betwar.trythree;
 
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 
 import android.content.Intent;
@@ -9,10 +10,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import SqlLiteClasses.Contact;
 import SqlLiteClasses.ContactRepo;
-
-
+import android.widget.EditText;
 public class MainActivity extends FragmentActivity implements PictureFragment.OnFragmentInteractionListener{
 
     //must implement this interface
@@ -31,8 +32,6 @@ public class MainActivity extends FragmentActivity implements PictureFragment.On
 //        contact.email="email@email.com";
 //        contact.phone=12345678;
 //        cRepo.addContact(contact);
-
-
 
     }
 
@@ -65,37 +64,50 @@ public class MainActivity extends FragmentActivity implements PictureFragment.On
 //        Databasehandler db= new Databasehandler(this);
 //
 //
-//        EditText name=(EditText)findViewById(R.id.nameInput);
-//        EditText phone=(EditText)findViewById(R.id.phoneInput);
+
+        /* get data rom input and pass it to fragment with bundle */
+        EditText name=(EditText)findViewById(R.id.nameInput);
+        EditText phone=(EditText)findViewById(R.id.phoneInput);
 //        EditText email=(EditText)findViewById(R.id.emailInput);
 //        //strings
-//         String phoneString=phone.getText().toString();
+       String phoneString=phone.getText().toString();
 //        int phoneInt=Integer.parseInt(phoneString);
 //         String emailString=email.getText().toString();
-//         String nameString= name.getText().toString();
+        String nameString= name.getText().toString();
 //
 
-        Intent intent=new Intent(MainActivity.this,DetailActivityView.class);
+        //Fragment change from submite button
+        Bundle bundle=new Bundle();
+        bundle.putString("Key_name_passes",nameString);
+        bundle.putString("Ket_phone_passes",phoneString);
+
+        PictureFragment pf=new PictureFragment();
+        pf.setArguments(bundle);
+        //fragment
+        if(findViewById(R.id.frame1) !=null) {
+
+
+            //fragment created and replace the last one
+            android.support.v4.app.FragmentManager fm=getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction  ft=fm.beginTransaction();
+            ft.replace(R.id.frame1, pf);
+
+            ft.commit();
+
+        }
+
+
+       // Intent intent=new Intent(MainActivity.this,DetailActivityView.class);
 
 
        // String[] data=new String[]{phoneString,emailString};
       //  intent.putExtra("strings",data);
 
-       startActivity(intent);
+     //  startActivity(intent);
     }
     public void frahmentButton(View view){
 
 
-        //fragment
-        if(findViewById(R.id.frame1) !=null) {
-
-            //fragment created and replace the last one
-            android.support.v4.app.FragmentManager fm=getSupportFragmentManager();
-            android.support.v4.app.FragmentTransaction  ft=fm.beginTransaction();
-            ft.replace(R.id.frame1 , new PictureFragment());
-            ft.commit();
-
-        }
 
     }
 }

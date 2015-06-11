@@ -1,30 +1,38 @@
 package com.example.betwar.trythree;
 
+import android.net.Uri;
+
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import SqlLiteClasses.Contact;
+import SqlLiteClasses.ContactRepo;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity implements PictureFragment.OnFragmentInteractionListener{
+
+    //must implement this interface
+    public void onFragmentInteraction(Uri uri){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ContactRepo cRepo=new ContactRepo(this);
-        Log.d("Insert","Insert:...");
-        Contact contact=new Contact();
-        contact.name="Abbas";
-        contact.email="email@email.com";
-        contact.phone=12345678;
-        cRepo.addContact(contact);
+//        Log.d("Insert","Insert:...");
+//        Contact contact=new Contact();
+//        contact.name="Abbas";
+//        contact.email="email@email.com";
+//        contact.phone=12345678;
+//        cRepo.addContact(contact);
 
-      //  cRepo.addContact(new Contact(1,"bla","Email@bo.com",123456));
+
 
     }
 
@@ -74,5 +82,20 @@ public class MainActivity extends ActionBarActivity {
       //  intent.putExtra("strings",data);
 
        startActivity(intent);
+    }
+    public void frahmentButton(View view){
+
+
+        //fragment
+        if(findViewById(R.id.frame1) !=null) {
+
+            //fragment created and replace the last one
+            android.support.v4.app.FragmentManager fm=getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction  ft=fm.beginTransaction();
+            ft.replace(R.id.frame1 , new PictureFragment());
+            ft.commit();
+
+        }
+
     }
 }

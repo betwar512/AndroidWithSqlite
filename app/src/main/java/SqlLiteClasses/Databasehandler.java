@@ -1,4 +1,4 @@
-package com.example.betwar.trythree;
+package SqlLiteClasses;
 import android.content.Context;
 
 import android.database.sqlite.SQLiteDatabase;

@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -61,4 +61,30 @@
         android:layout_above="@+id/emailInput"
         android:layout_alignLeft="@+id/emailInput"
         android:layout_alignStart="@+id/emailInput" />
-</RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/frame1"
+        android:layout_below="@+id/submitButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/phoneInput"
+        android:layout_alignEnd="@+id/phoneInput"
+        android:layout_alignLeft="@+id/phoneInput"
+        android:layout_alignStart="@+id/phoneInput" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="change Fragment "
+        android:id="@+id/changeButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:onClick="frahmentButton" />
+
+
+</RelativeLayout >

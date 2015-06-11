@@ -1,4 +1,4 @@
-package com.example.betwar.trythree;
+package SqlLiteClasses;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -37,7 +37,9 @@ public class ContactRepo {
     }
 
     public Contact getContact(int id){
+
         SQLiteDatabase db=dbHd.getReadableDatabase();
+
         Cursor cursor=db.query(TABLE_CONTACT, new String[]{KEY_ID, KEY_NAME, KEY_MAIL, KEY_PHONE}, KEY_ID + "=?", new String[]{String.valueOf(id)}, null, null, null);
         if(cursor!=null)
             cursor.moveToFirst();

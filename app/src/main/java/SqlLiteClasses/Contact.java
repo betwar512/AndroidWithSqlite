@@ -1,4 +1,4 @@
-package com.example.betwar.trythree;
+package SqlLiteClasses;
 
 /**
  * Created by betwar on 6/9/2015.

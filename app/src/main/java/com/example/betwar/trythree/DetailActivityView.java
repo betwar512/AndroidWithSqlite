@@ -1,6 +1,5 @@
 package com.example.betwar.trythree;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +7,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.util.List;
+
+import SqlLiteClasses.Contact;
+import SqlLiteClasses.ContactRepo;
 
 
 public class DetailActivityView extends ActionBarActivity {
